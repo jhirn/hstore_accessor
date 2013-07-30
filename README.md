@@ -60,7 +60,7 @@ Reading these fields works as well.
 
 ```ruby
 p.color #=> "green"
-p.tags #=> ["housewares", "kitchen"] 
+p.tags #=> ["housewares", "kitchen"]
 ```
 
 ### Scopes
@@ -133,6 +133,7 @@ We set up our table with an hstore field:
 # db/migration/<timestamp>_create_players_table.rb
 class CreateVehiclesTable < ActiveRecord::Migration
   def change
+    execute "CREATE EXTENSION IF NOT EXISTS hstore"
     create_table :vehicles do |t|
       t.string :make
       t.string :model
